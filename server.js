@@ -5,12 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-// Temporary array to store books
 let books = [];
-
-
-// TASK 2: ADD NEW BOOK
-// POST /api/books
 
 app.post('/api/books', (req, res) => {
 
@@ -52,9 +47,6 @@ app.post('/api/books', (req, res) => {
 });
 
 
-// TASK 3: VIEW ALL BOOKS
-// GET /api/books
-
 app.get('/api/books', (req, res) => {
 
     if (books.length === 0) {
@@ -69,8 +61,6 @@ app.get('/api/books', (req, res) => {
 });
 
 
-// TASK 6: SEARCH BOOKS
-// GET /api/books/search?title=Java
 
 app.get('/api/books/search', (req, res) => {
 
@@ -85,8 +75,6 @@ app.get('/api/books/search', (req, res) => {
 });
 
 
-// TASK 3: VIEW BOOK BY ID
-// GET /api/books/:id
 
 app.get('/api/books/:id', (req, res) => {
 
@@ -101,10 +89,6 @@ app.get('/api/books/:id', (req, res) => {
     res.json(book);
 
 });
-
-
-// TASK 4: UPDATE BOOK
-// PUT /api/books/:id
 
 app.put('/api/books/:id', (req, res) => {
 
@@ -142,9 +126,6 @@ app.put('/api/books/:id', (req, res) => {
 });
 
 
-// TASK 5: DELETE BOOK
-// DELETE /api/books/:id
-
 app.delete('/api/books/:id', (req, res) => {
 
     const index = books.findIndex(b => b.id === Number(req.params.id));
@@ -164,8 +145,6 @@ app.delete('/api/books/:id', (req, res) => {
 });
 
 
-// TASK 7: ISSUE BOOK
-// POST /api/books/:id/issue
 
 app.post('/api/books/:id/issue', (req, res) => {
 
@@ -192,10 +171,6 @@ app.post('/api/books/:id/issue', (req, res) => {
 
 });
 
-
-// TASK 7: RETURN BOOK
-// POST /api/books/:id/return
-
 app.post('/api/books/:id/return', (req, res) => {
 
     const book = books.find(b => b.id === Number(req.params.id));
@@ -221,9 +196,7 @@ app.post('/api/books/:id/return', (req, res) => {
 
 });
 
-
-// START SERVER
-
 app.listen(3000, () => {
     console.log("Server running on port 3000");
 });
+
